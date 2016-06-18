@@ -1,3 +1,3 @@
 <?php
-  header("Location: db.php ?>");
+  header("Location: lib-man.html ?>");
 ?>

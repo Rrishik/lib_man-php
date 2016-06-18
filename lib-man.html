@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="styles.css"></link>
+    <script type="text/javascript" src="myscript.js"></script>
+    <title>Library Management</title>
+  </head>
+
+  <body>
+
+    <div class="heading">
+      <h1>Library Management System</h1>
+    </div>
+
+    <div class="list">
+      <h2>Book List</h2><br>
+      <ul id="lists"></ul>
+    </div>
+
+    <div class="mainContainer">
+  	  <div id="mainContent">
+        <div id="bookDetailsContainer">
+    			<h2>Book Details</h2><br>
+    			<div id="bookDetails"></div>
+    		</div>
+    		<div id="addBookContainer">
+    			<h2>Add New Book</h2><br>
+    			<form action="input.php" method="post" id="addForm">
+            <table>
+              <tr>
+                <td>
+                  Book Name: &nbsp;
+                </td>
+                <td>
+                  <input type="text" name="Name"><br>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Author Name: &nbsp;
+                </td>
+                <td>
+                  <input type="text" name="Author"><br>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Book Price: &nbsp;
+                </td>
+                <td>
+                  <input type="text" name="Price"><br>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  ISBN: &nbsp;
+                </td>
+                <td>
+                  <input type="text" name="Isbn"><br>
+                </td>
+              </tr>
+            </table>
+            <input type="submit">
+    			</form>
+    		</div>
+  	  </div>
+    </div>
+
+    <div class="link">
+      <a href="#addForm" id="addBook"><h4><i>ADD NEW BOOK</i></h4></a>
+    </div>
+
+  </body>
+
+
+</html>

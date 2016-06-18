@@ -1,0 +1,46 @@
+.heading {
+    background-color: #009933;
+    color: white;
+    width: 100%;
+    height: 100px;
+    padding: 8px;
+}
+
+body {
+    background-color: #f2f2f2;
+}
+
+.list {
+    line-height: 30px;
+    background-color: #adad85;
+    height: 100%;
+    width: 40%;
+    float: left;
+    padding: 5px;
+}
+
+.mainContainer {
+    width: 30%;
+    float: left;
+    padding: 10px;
+    vertical-align: top;
+    background-color: inherit;
+}
+
+.link {
+    float: right;
+    vertical-align: top;
+    padding: 5px;
+}
+
+#addBookContainer {
+    display: none;
+}
+
+#bookDetailsContainer {
+    display: none;
+}
+
+a {
+	cursor: pointer;
+}

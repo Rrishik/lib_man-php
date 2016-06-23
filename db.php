@@ -1,14 +1,7 @@
 <?php
 
     function addDB(){
-      $servername = "localhost";
-  		$username = "root";
-  		$password = "root";
-
-      $conn = new mysqli($servername,$username,$password);
-      if ($conn->connect_error){
-        die("Connection failed! :" . $conn->connect_error);
-      }
+      include('serverConnect.php');
 
       $sql = "CREATE DATABASE IF NOT EXISTS books";
       $conn->query($sql);
@@ -17,15 +10,7 @@
     }
 
     function addTABLE(){
-      $servername = "localhost";
-  		$username = "root";
-  		$password = "root";
-  		$dbname = "books";
-
-      $conn = new mysqli($servername,$username,$password,$dbname);
-      if ($conn->connect_error){
-        die("Connection failed! :" . $conn->connect_error);
-      }
+    include('dbConnect.php');
 
       $sql = "CREATE TABLE IF NOT EXISTS `book details` (
         `Book Name` VARCHAR(30) NOT NULL PRIMARY KEY,
@@ -40,15 +25,7 @@
     addDB();
     addTABLE();
 
-		$servername = "localhost";
-		$username = "root";
-		$password = "root";
-		$dbname = "books";
-
-    $conn = new mysqli($servername,$username,$password,$dbname);
-    if ($conn->connect_error){
-      die("Connection failed! :" . $conn->connect_error);
-    }
+		include('dbConnect.php');
 
 		$return_arr=array();
 		$sql = "SELECT * FROM `book details`";

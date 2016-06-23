@@ -1,18 +1,18 @@
-var books={"Books":[]};
+var books;
 
 function callPage(url){
-	ajax = new XMLHttpRequest();
-	ajax.onload=function(){
+	var ajax = new XMLHttpRequest();
+	ajax.onload = function(){
 		if (ajax.readyState==4 && ajax.status==200) {
-			books.Books=this.responseText;
+			books=JSON.parse(ajax.responseText);
+			loadBooks();
 		}
 	};
-	ajax.open("GET",url,true);
+	ajax.open("get",url,true);
 	ajax.send();
-	loadBooks();
 }
 addEventListener("load", function(){
-	callPage('db.php');
+	callPage("db.php");
 });
 
 addEventListener("load", function(){
@@ -24,8 +24,8 @@ addEventListener("load", function(){
 
 function loadBooks() {
 	var htmlOut="";
-	for(var i=0;i<books.Books.length;i++) {
-		htmlOut+= '<li><a onclick="return viewBook(\'' + books.Books[i].isbn +'\')">' + books.Books[i].name + '</a></li>' + '<hr>';
+	for(var i=0;i<books.length;i++) {
+		htmlOut+= '<li><a onclick="return viewBook(\'' + books[i].isbn + '\')">' + books[i].name + '</a></li>' + '<hr>';
 	}
 	document.getElementById("lists").innerHTML = htmlOut;
 }
@@ -34,9 +34,9 @@ function viewBook(ISBN){
 	document.getElementById("bookDetailsContainer").style.display = 'block';
 	document.getElementById("addBookContainer").style.display = 'none';
 
-	for(var i=0;i<books.Books.length;i++){
-		if(books.Books[i].isbn === ISBN) {
-			var htmlBookDetails = 'NAME: ' + books.Books[i].name  + '<br>' + 'AUTHOR: ' + books.Books[i].author + '<br>' + 'PRICE: &#8377;' + books.Books[i].price + '<br>' + 'ISBN: ' + books.Books[i].isbn + '<br>' ;
+	for(var i=0;i<books.length;i++){
+		if(books[i].isbn === ISBN) {
+			var htmlBookDetails = 'NAME: ' + books[i].name  + '<br>' + 'AUTHOR: ' + books[i].author + '<br>' + 'PRICE: &#8377;' + books[i].price + '<br>' + 'ISBN: ' + books[i].isbn + '<br>' ;
 			document.getElementById("bookDetails").innerHTML = htmlBookDetails ;
 			break;
 		}
